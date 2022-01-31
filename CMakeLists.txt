@@ -132,6 +132,10 @@ target_link_libraries(test_idyntree ${iDynTree_LIBRARIES} ${catkin_LIBRARIES})
 add_executable( upper_body src/robots/upper_body.cpp)
 target_link_libraries(upper_body ${iDynTree_LIBRARIES} ${catkin_LIBRARIES} vrpuppet kindyn)
 
+# musc_shoulder
+add_executable( musc_shoulder src/robots/musc_shoulder.cpp)
+target_link_libraries(musc_shoulder ${iDynTree_LIBRARIES} ${catkin_LIBRARIES} vrpuppet kindyn)
+
 #==============================================================================
 # Installation
 #==============================================================================

@@ -181,22 +181,6 @@ void Robot::init(string urdf_file_path, string viapoints_file_path, vector<strin
 
 void Robot::update(){
 
-    if (debug_) {
-        if (nh->hasParam("joint_dt"))
-            nh->getParam("joint_dt", kinematics.joint_dt);
-        if (nh->hasParam("joint_kp")){
-            nh->getParam("joint_kp", param_kp);
-            for (int joint = 0; joint < kinematics.number_of_dofs; joint++) {
-                Kp_[joint] = param_kp[joint];
-            }
-        }
-        if (nh->hasParam("joint_kd")) {
-            nh->getParam("joint_kd", param_kd);
-            for (int joint = 0; joint < kinematics.number_of_dofs; joint++) {
-                Kd_[joint] = param_kd[joint];
-            }
-        }
-    }
 
     // TODO: Run the below code in critical section to avoid Mutex with the JointState and PROBABLY the controller
 
