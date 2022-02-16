@@ -36,7 +36,7 @@ private:
     VectorXd l_current;
     map<string, vector<float>> integral, error_last;
     boost::shared_ptr<tf::TransformListener> listener;
-    std::vector<string> body_parts = {"shoulder_left"};//, "shoulder_left"};//}, "elbow_left"};
+    std::vector<string> body_parts = {"shoulder"};//, "shoulder_left"};//}, "elbow_left"};
     map<string, bool> init_called;
     boost::shared_ptr<std::thread> system_status_thread;
     ros::Time prev_roboy_state_time;
@@ -65,7 +65,7 @@ public:
         nh->getParam("joint_names", joint_names);
         nh->getParam("external_robot_state", external_robot_state);
         ROS_INFO_STREAM("External robot state: " << external_robot_state);
-        topic_root = "/devanthro/" + robot_model + "/";
+        topic_root = "/roboy/" + robot_model + "/";
 
         init(urdf,cardsflow_xml,joint_names);
 //        listener.reset(new tf::TransformListener);
